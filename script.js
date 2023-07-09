@@ -10,8 +10,8 @@ const authorName = cloneCard.getElementById("author");
 const description = cloneCard.getElementById("description");
 
 //Add book names manually
-const ikigai = new Book("Ikigai","Hector Garcia", 192, false);
-const flashPoint = new Book("FlashPoint", "Geoff Johns", 176, true, "./images/Flashpoint.avif")
+const ikigai = new Book("Ikigai","Hector Garcia", 192, false, "./images/pa joseph IKIGAI.jpeg");
+const flashPoint = new Book("FlashPoint", "Geoff Johns", 176, true, "./images/Flashpoint.avif");
 
 let myLibrary = [ikigai, flashPoint]; //Books library
 
@@ -27,5 +27,7 @@ function Book(name, author, pages, read = false, cover){
 }
 
 function addToLibrary (){
-    
+    for(let i=0;i<myLibrary.length;i++){
+        
+    }
 }
