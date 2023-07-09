@@ -22,13 +22,35 @@
             <button type="button" id="login-btn" class="btn--primary bg-blue-700 px-2.5 py-1 text-white rounded-md drop-shadow-lg text-xl hover:bg-blue-600 border-transparent">Login</button>
         </div>
     </header>
-    <div class="main-container flex mt-3 z-10 justify-center">
+    <div class="main-container flex mt-10 z-10 justify-center">
         <button class="flex items-center bg-blue-700 px-2.5 py-1 text-white text-2xl drop-shadow-xl border-transparent rounded-md hover:bg-blue-600 active:scale-95" id="add-books">
             <ion-icon name="add-outline" id="add-icon"></ion-icon>
             Add Books
         </button>
     </div>
 
+    <div class="library-books flex mt-8 justify-center">
+        <h1 class="text-4xl" >Your Books</h1>
+    </div>
+
+    <div class="book-card w-full flex mt-3 ml-5 h-fit">
+        <!-- Card entered as added through JS -->
+        </div>
+    </div>
+
+    <template>
+        <div class="card flex-col drop-shadow-md bg-white h-80">
+            <div class="flex-none w-60 h-40 relative">
+                <img src="../images/Flashpoint.avif" alt="" class="absolute inset-0 w-full h-full object-cover rounded-lg" loading="lazy" id="cover-image"/>
+              </div>
+              <div class="content flex-col mt-2 ml-2">
+                  <h2 id="book-name" class="text-xl text-blue-700">Name inserted through JS</h2>
+                  <p id="author">Author name</p>
+                  <p id="page-num">###</p>
+                  <p id="description">Lorem Ipsum add description here boy</p>
+              </div>
+        </div>
+    </template>
     <script src="../script.js"></script>
 </body>
 </html>

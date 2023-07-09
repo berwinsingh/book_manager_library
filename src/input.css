@@ -29,3 +29,12 @@ header{
 #add-icon{
     color: white;
 }
+
+.cards{
+    height: 100vh;
+    width: 100vw;
+}
+
+#description{
+    width: 200px;
+}
