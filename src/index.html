@@ -3,12 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./input.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Staatliches&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="../dist/output.css">
     <title>Book Manager Project</title>
 </head>
 <body>
-    
-
+    <!-- <h1 class="text-5xl">Hello</h1> -->
+    <header class="flex items-center justify-between bg-white drop-shadow-lg">
+        <div class="library-logo flex items-center gap-2">
+            <ion-icon name="book-outline" class="scale-150"></ion-icon>
+            <h2 class="text-3xl">Library</h2>
+        </div>
+        <div class="menu-items flex">
+            <button type="button" id="login-btn" class="btn--primary bg-blue-700 px-2.5 py-1 text-white rounded-md drop-shadow-lg text-xl hover:bg-blue-600 border-transparent">Login</button>
+        </div>
+    </header>
+    <div class="main-container flex mt-3 z-10 justify-center">
+        <button class="flex items-center bg-blue-700 px-2.5 py-1 text-white text-2xl drop-shadow-xl border-transparent rounded-md hover:bg-blue-600 active:scale-95" id="add-books">
+            <ion-icon name="add-outline" id="add-icon"></ion-icon>
+            Add Books
+        </button>
+    </div>
 
     <script src="../script.js"></script>
 </body>

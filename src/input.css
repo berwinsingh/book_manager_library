@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --main-heading: 'Staatliches', cursive;
+    --body-font-style: 'Roboto', sans-serif;
+}
+
+h1,h2{
+    font-family: var(--main-heading);
+}
+
+body{
+    font-family: var(--body-font-style);
+    font-weight: 500;
+}
+
+header{
+    padding: 10px;
+}
+
+#add-icon{
+    color: white;
+}
