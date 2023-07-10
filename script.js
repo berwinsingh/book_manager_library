@@ -1,19 +1,13 @@
 const loginBtn = document.querySelector("#login-btn");
 const addBook = document.getElementById("add-books");
+const booksPlaceholder = document.querySelector(".book-card");
 
-const template = document.querySelector("template");
-const cloneCard = template.content.cloneNode(true);
-const bookName = cloneCard.getElementById("book-name");
-const coverImage = cloneCard.getElementById("cover-image");
-const pageNum = cloneCard.getElementById("page-num");
-const authorName = cloneCard.getElementById("author");
-const description = cloneCard.getElementById("description");
-
-//Add book names manually
+//Adding book names manually for testing
 const ikigai = new Book("Ikigai","Hector Garcia", 192, false, "./images/pa joseph IKIGAI.jpeg");
 const flashPoint = new Book("FlashPoint", "Geoff Johns", 176, true, "./images/Flashpoint.avif");
+const supermanLegacy = new Book("Superman Legacy", "Karl Kesel", 64, false, "./images/Superman Legacy.jpg");
 
-let myLibrary = [ikigai, flashPoint]; //Books library
+let myLibrary = [ikigai, flashPoint, supermanLegacy]; //All the books present
 
 function Book(name, author, pages, read = false, cover){
     this.name =  name,
@@ -28,6 +22,21 @@ function Book(name, author, pages, read = false, cover){
 
 function addToLibrary (){
     for(let i=0;i<myLibrary.length;i++){
-        
+        const template = document.querySelector("template");
+        const cloneCard = template.content.cloneNode(true);
+        const bookName = cloneCard.getElementById("book-name");
+        const coverImage = cloneCard.getElementById("cover-image");
+        const pageNum = cloneCard.getElementById("page-num");
+        const authorName = cloneCard.getElementById("author");
+        const description = cloneCard.getElementById("description");
+
+        let bookDetails = myLibrary[i]; //Looping through individual book names
+        bookName.textContent = bookDetails.name;
+        coverImage.setAttribute("src", `.${bookDetails.cover}`);
+        pageNum.textContent = +bookDetails.pages;
+        authorName.textContent = bookDetails.author;
+        description.textContent = bookDetails.description();
+
+        booksPlaceholder.appendChild(cloneCard);
     }
 }
