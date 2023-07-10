@@ -12,7 +12,6 @@
     <title>Book Manager Project</title>
 </head>
 <body>
-    <!-- <h1 class="text-5xl">Hello</h1> -->
     <header class="flex items-center justify-between bg-white drop-shadow-lg">
         <div class="library-logo flex items-center gap-2">
             <ion-icon name="book-outline" class="scale-150"></ion-icon>
@@ -33,15 +32,26 @@
         <h1 class="text-4xl" >Your Books</h1>
     </div>
 
-    <div class="book-card w-full flex mt-3 ml-5 h-fit">
+    <div class="book-card w-full flex flex-wrap mt-3 ml-5 h-fit">
         <!-- Card entered as added through JS -->
-        </div>
+    </div>
+
+    <div class="w-full flex justify-center z-50 display" id="adding-new-book">
+        <form action="add-book" class="flex-col p-3 gap-2 bg-white drop-shadow-lg absolute" id="new-popup">
+                <h2 class="text-2xl">Add a new Book</h2>
+                <input type="text" required placeholder="Book Name" id="book-title">
+                <input type="text" required placeholder="Author Name" id="book-author">
+                <input type="number" required placeholder="Pages" id="book-page">
+                <label for="cover-image" class="">Select a cover Image to continue</label>
+                <input type="file" required name="cover-image" id="book-cover">
+                <button type="button" class="btn--primary text-white p-3 w-40 self-center hover:bg-blue-600 bg-blue-700 rounded-lg drop-shadow-lg" id="book-submit">Submit</button>
+        </form>
     </div>
 
     <template>
-        <div class="card flex-col drop-shadow-md bg-white h-80 ml-4">
+        <div class="card flex-col drop-shadow-md bg-white h-80 ml-4 mb-4">
             <div class="flex-none w-60 h-40 relative">
-                <img src="../images/Flashpoint.avif" alt="" class="absolute inset-0 w-full h-full object-cover rounded-lg" loading="lazy" id="cover-image"/>
+                <img src="" alt="" class="absolute inset-0 w-full h-full object-cover rounded-lg" loading="lazy" id="cover-image"/>
               </div>
               <div class="content flex-col mt-2 ml-2">
                   <h2 id="book-name" class="text-xl text-blue-700">Name inserted through JS</h2>

@@ -40,3 +40,31 @@ function addToLibrary (){
         booksPlaceholder.appendChild(cloneCard);
     }
 }
+
+
+//Popup for adding a new book
+const newBookPop = document.getElementById("adding-new-book");
+const submitNewBook = document.getElementById("book-submit");
+const titleInput = document.getElementById("book-title");
+const authorInput = document.getElementById("book-author");
+const pageInput = document.getElementById("book-page");
+const coverInput = document.getElementById("book-cover");
+
+addBook.addEventListener("click",()=>{
+    newBookPop.classList.remove("display");
+    
+    booksPlaceholder.classList.add("blur");
+    booksPlaceholder.addEventListener("click",()=>{
+        newBookPop.classList.add("display");
+        booksPlaceholder.classList.remove("blur");
+    });
+    
+    submitNewBook.addEventListener("click",()=>{
+        const newBook = new Book(titleInput.value, authorInput.value, pageInput.value, coverInput.value);
+        myLibrary.push(newBook);
+        
+        booksPlaceholder.classList.remove("blur");
+        newBookPop.classList.add("display");
+        addToLibrary();
+    });
+});
