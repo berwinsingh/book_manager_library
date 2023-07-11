@@ -51,7 +51,6 @@ function isAlreadyAdded(book){
         const books = booksPlaceholder.children[j];
         const title = books.querySelector("#book-name").textContent;
         const author = books.querySelector("#author").textContent;
-        const pages = books.querySelector("#page-num").textContent;
 
         if(title===book.name && author===book.author){
             return true;
