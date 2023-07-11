@@ -542,6 +542,10 @@ video {
   z-index: 50;
 }
 
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
 .ml-2 {
   margin-left: 0.5rem;
 }
@@ -568,14 +572,6 @@ video {
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.mb-2 {
-  margin-bottom: 0.5rem;
-}
-
-.mb-4 {
-  margin-bottom: 1rem;
 }
 
 .flex {

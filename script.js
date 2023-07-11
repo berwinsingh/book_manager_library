@@ -12,7 +12,7 @@ let myLibrary = [ikigai, flashPoint, supermanLegacy]; //All the books present
 function Book(name, author, pages, read = false, cover){
     this.name =  name,
     this.author = author,
-    this.pages =pages,
+    this.pages = pages,
     this.read = read,
     this.cover = cover
     this.description = function (){
@@ -29,8 +29,13 @@ function addToLibrary (){
         const pageNum = cloneCard.getElementById("page-num");
         const authorName = cloneCard.getElementById("author");
         const description = cloneCard.getElementById("description");
-
+        
         let bookDetails = myLibrary[i]; //Looping through individual book names
+
+        if(isAlreadyAdded(bookDetails)){ //Checking if the book already exists and 
+            continue;
+        }
+
         bookName.textContent = bookDetails.name;
         coverImage.setAttribute("src", `.${bookDetails.cover}`);
         pageNum.textContent = +bookDetails.pages;
@@ -41,6 +46,19 @@ function addToLibrary (){
     }
 }
 
+function isAlreadyAdded(book){
+    for(let j=0;j<booksPlaceholder.children.length;j++){
+        const books = booksPlaceholder.children[j];
+        const title = books.querySelector("#book-name").textContent;
+        const author = books.querySelector("#author").textContent;
+        const pages = books.querySelector("#page-num").textContent;
+
+        if(title===book.name && author===book.author){
+            return true;
+        }
+    }
+    return false;
+}
 
 //Popup for adding a new book
 const newBookPop = document.getElementById("adding-new-book");
@@ -50,6 +68,7 @@ const authorInput = document.getElementById("book-author");
 const pageInput = document.getElementById("book-page");
 const coverInput = document.getElementById("book-cover");
 
+//Addind click function to show the popup
 addBook.addEventListener("click",()=>{
     newBookPop.classList.remove("display");
     
@@ -59,6 +78,7 @@ addBook.addEventListener("click",()=>{
         booksPlaceholder.classList.remove("blur");
     });
     
+    //Add a condition that if empty then submit won't work
     submitNewBook.addEventListener("click",()=>{
         const newBook = new Book(titleInput.value, authorInput.value, pageInput.value, coverInput.value);
         myLibrary.push(newBook);
