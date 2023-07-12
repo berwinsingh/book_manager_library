@@ -65,29 +65,35 @@ const submitNewBook = document.getElementById("book-submit");
 const titleInput = document.getElementById("book-title");
 const authorInput = document.getElementById("book-author");
 const pageInput = document.getElementById("book-page");
-const coverInput = document.getElementById("book-cover");
+// const coverInput = document.getElementById("book-cover");
 
 
 //Addind click function to show the popup
 addBook.addEventListener("click",()=>{
     newBookPop.classList.remove("display");
-    
     booksPlaceholder.classList.add("blur");
     booksPlaceholder.addEventListener("click",()=>{
         newBookPop.classList.add("display");
         booksPlaceholder.classList.remove("blur");
     });
     
-    coverInput.addEventListener("change",()=>{
-       const reader = new FileReader();
-       reader.readAsDataURL()
-    })
-
+    
     //Add a condition that if empty then submit won't work
     submitNewBook.addEventListener("click",()=>{
-        const newBook = new Book(titleInput.value, authorInput.value, pageInput.value, imageFile);
-        myLibrary.push(newBook);
+
+        // coverInput.addEventListener("change",()=>{
+        //    const reader = new FileReader();
+        //    reader.readAsDataURL(coverInput.files[0]);
+    
+        //    reader.addEventListener("load",()=>{
+        //         const url = reader.result;
+        //         const img = new Image();
+        //         img.src = url;
+        //     });
+        // })
         
+        const newBook = new Book(titleInput.value, authorInput.value, pageInput.value);
+        myLibrary.push(newBook);
         booksPlaceholder.classList.remove("blur");
         newBookPop.classList.add("display");
         addToLibrary();
