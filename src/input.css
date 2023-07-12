@@ -71,3 +71,11 @@ input[type="text"]:active{
 .blur{
     filter: blur(5px);
 }
+
+.card{
+    height: 350px;
+}
+
+#trash{
+    cursor: pointer;
+}

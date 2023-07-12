@@ -87,3 +87,10 @@ addBook.addEventListener("click",()=>{
         addToLibrary();
     });
 });
+
+//Adding Delete Functionality
+booksPlaceholder.addEventListener("click",(e)=>{
+    let itemToRemove = e.target.closest(".card");
+    booksPlaceholder.removeChild(itemToRemove); //Removes item from DOM
+    myLibrary.pop(itemToRemove) //Removes item from Array
+});
