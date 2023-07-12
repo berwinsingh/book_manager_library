@@ -67,6 +67,7 @@ const authorInput = document.getElementById("book-author");
 const pageInput = document.getElementById("book-page");
 const coverInput = document.getElementById("book-cover");
 
+
 //Addind click function to show the popup
 addBook.addEventListener("click",()=>{
     newBookPop.classList.remove("display");
@@ -77,9 +78,14 @@ addBook.addEventListener("click",()=>{
         booksPlaceholder.classList.remove("blur");
     });
     
+    coverInput.addEventListener("change",()=>{
+       const reader = new FileReader();
+       reader.readAsDataURL()
+    })
+
     //Add a condition that if empty then submit won't work
     submitNewBook.addEventListener("click",()=>{
-        const newBook = new Book(titleInput.value, authorInput.value, pageInput.value, coverInput.value);
+        const newBook = new Book(titleInput.value, authorInput.value, pageInput.value, imageFile);
         myLibrary.push(newBook);
         
         booksPlaceholder.classList.remove("blur");
@@ -94,3 +100,5 @@ booksPlaceholder.addEventListener("click",(e)=>{
     booksPlaceholder.removeChild(itemToRemove); //Removes item from DOM
     myLibrary.pop(itemToRemove) //Removes item from Array
 });
+
+//Adding read functionality
