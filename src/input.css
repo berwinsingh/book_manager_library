@@ -57,7 +57,7 @@ input[type="text"]:active{
     padding-block: 20px;
     border-radius: 20px;
     display: flex;
-    top: 50%;
+    top: 40%;
 }
 
 .display{
@@ -73,7 +73,7 @@ input[type="text"]:active{
 }
 
 .card{
-    height: 350px;
+    height: 370px;
 }
 
 #trash{

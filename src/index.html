@@ -38,7 +38,7 @@
 
     <div class="w-full flex justify-center z-50 display" id="adding-new-book">
         <form action="add-book" class="flex-col p-3 gap-2 bg-white drop-shadow-lg absolute" id="new-popup">
-                <h2 class="text-2xl">Add a new Book</h2>
+                <h2 class="text-2xl" id="add-book-heading">Add a new Book</h2>
                 <input type="text" required placeholder="Book Name" id="book-title">
                 <input type="text" required placeholder="Author Name" id="book-author">
                 <input type="number" required placeholder="Pages" id="book-page">
@@ -53,11 +53,12 @@
             <div class="flex-none w-60 h-40 relative">
                 <img src="" alt="" class="absolute inset-0 w-full h-full object-cover rounded-lg" loading="lazy" id="cover-image"/>
               </div>
-              <div class="content flex-col mt-2 ml-2">
+              <div class="content flex-col mt-2 ml-2 gap-2">
                   <h2 id="book-name" class="text-xl text-blue-700">Name inserted through JS</h2>
                   <p id="author">Author name</p>
                   <p id="page-num">###</p>
                   <p id="description">Lorem Ipsum add description here boy</p>
+                  <label for="read?" class="mt-4">Read <input type="checkbox" name="read?" id="read-status"></label>
               </div>
               <ion-icon name="trash-outline" class="text-red-600 absolute left-52 scale-105" id="trash"></ion-icon>
         </div>

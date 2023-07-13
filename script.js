@@ -66,45 +66,58 @@ const titleInput = document.getElementById("book-title");
 const authorInput = document.getElementById("book-author");
 const pageInput = document.getElementById("book-page");
 // const coverInput = document.getElementById("book-cover");
+const addHeading = document.getElementById("add-book-heading");
 
 
 //Addind click function to show the popup
 addBook.addEventListener("click",()=>{
     newBookPop.classList.remove("display");
     booksPlaceholder.classList.add("blur");
+
     booksPlaceholder.addEventListener("click",()=>{
         newBookPop.classList.add("display");
         booksPlaceholder.classList.remove("blur");
     });
     
-    
-    //Add a condition that if empty then submit won't work
     submitNewBook.addEventListener("click",()=>{
-
-        // coverInput.addEventListener("change",()=>{
-        //    const reader = new FileReader();
-        //    reader.readAsDataURL(coverInput.files[0]);
-    
-        //    reader.addEventListener("load",()=>{
-        //         const url = reader.result;
-        //         const img = new Image();
-        //         img.src = url;
-        //     });
-        // })
+        // console.log(addHeading.textContent);
+            // coverInput.addEventListener("change",()=>{
+            //    const reader = new FileReader();
+            //    reader.readAsDataURL(coverInput.files[0]);
         
-        const newBook = new Book(titleInput.value, authorInput.value, pageInput.value);
-        myLibrary.push(newBook);
-        booksPlaceholder.classList.remove("blur");
-        newBookPop.classList.add("display");
-        addToLibrary();
+            //    reader.addEventListener("load",()=>{
+            //         const url = reader.result;
+            //         const img = new Image();
+            //         img.src = url;
+            //     });
+            // })
+            
+            const newBook = new Book(titleInput.value, authorInput.value, pageInput.value);
+            myLibrary.push(newBook);
+            booksPlaceholder.classList.remove("blur");
+            newBookPop.classList.add("display");
+            addToLibrary();
     });
 });
 
-//Adding Delete Functionality
+//Adding Delete & Read Functionality
 booksPlaceholder.addEventListener("click",(e)=>{
-    let itemToRemove = e.target.closest(".card");
-    booksPlaceholder.removeChild(itemToRemove); //Removes item from DOM
-    myLibrary.pop(itemToRemove) //Removes item from Array
-});
+    
+    if(e.target.id==="trash"){
+        let itemToRemove = e.target.closest(".card");
+        booksPlaceholder.removeChild(itemToRemove); //Removes item from DOM
+        myLibrary.pop(itemToRemove) //Removes item from Array
+    }
+    
+    if(e.target.id==="read-status"){
+        let itemReadStatus = e.target.closest(".card");
+        const readInput = e.target;
 
-//Adding read functionality
+        if(readInput.checked){
+            const index = Array.from(booksPlaceholder.children).indexOf(itemReadStatus);
+            if (index !== -1) {
+              myLibrary[index].read = true;
+            }
+        }
+    }
+});
